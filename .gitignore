@@ -1,0 +1,30 @@
+2024届毕业论文（设计）动员.pdf
+开题报告.doc
+开题报告.pptx
+jsconfig.json
+参考文献
+
+
+.DS_Store
+node_modules
+/dist
+
+
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
