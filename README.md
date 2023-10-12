@@ -23,3 +23,6 @@ JS，[Apache Echarts](https://echarts.apache.org/zh/index.html)库可实现
 ### 特产分类表
 ### *特产种类表*
 ### TODO：
+从[全国地理标志农产品信息查询系统](http://www.anluyun.com/home/search?Province=%E7%A6%8F%E5%BB%BA&timestamp=1697008767712)获得已登记的产品信息
+从高德地图获取乡镇级行政区划的数据
+（mysql）建立，保存到数据库
