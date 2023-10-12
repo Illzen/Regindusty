@@ -1,10 +1,5 @@
-2024届毕业论文（设计）动员.pdf
-开题报告.doc
-开题报告.pptx
-jsconfig.json
-参考文献
-front/在canvas上绘制地图.txt
-
+doc
+.gitignore
 
 .DS_Store
 node_modules
