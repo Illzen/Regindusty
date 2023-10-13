@@ -1,8 +1,15 @@
 import requests
 
-res = requests.get("http://shop.bytravel.cn/produce/top10/index971.html")
-# 写正则 匹配 <meta charset= i /> 获取编码i，再通过i重新请求
 
+datav_api = {
+        "front": 'https://geo.datav.aliyun.com//areas_v3/bound/',
+        "adcode": '100000',
+        "back": '_full.json'
+      }
+
+print(datav_api["front"]+datav_api["adcode"]+datav_api["back"])
+
+res = requests.get(datav_api["front"]+datav_api["adcode"]+datav_api["back"])
 
 if(res.status_code == 200):
 	print(res.text)
