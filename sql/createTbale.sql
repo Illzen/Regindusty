@@ -20,5 +20,5 @@ CREATE TABLE regional_specialties (
 	s_id INT,
 	FOREIGN KEY (adcode) REFERENCES districts (adcode),
 	FOREIGN KEY (s_id) REFERENCES specialty (id),
-	PRIMARY KEY(d_id, s_id)
+	PRIMARY KEY(adcode, s_id)
 )
