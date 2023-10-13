@@ -1,7 +1,7 @@
 DROP DATABASE IF EXISTS regindusty;
 CREATE DATABASE regindusty;
 
-USE DATABASE regindusty;
+USE regindusty;
 
 DROP TABLE IF EXISTS regional_specialties;
 DROP TABLE IF EXISTS specialty;
