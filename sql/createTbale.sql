@@ -1,3 +1,12 @@
+DROP DATABASE IF EXISTS regindusty;
+CREATE DATABASE regindusty;
+
+USE DATABASE regindusty;
+
+DROP TABLE IF EXISTS regional_specialties;
+DROP TABLE IF EXISTS specialty;
+DROP TABLE IF EXISTS districts;
+
 CREATE TABLE districts (
 	adcode INT,
 	name VARCHAR(20),
