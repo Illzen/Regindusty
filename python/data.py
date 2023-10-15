@@ -1,19 +1,44 @@
+import pymysql
 import requests
+import json
 
 
-datav_api = {
-        "front": 'https://geo.datav.aliyun.com//areas_v3/bound/',
-        "adcode": '100000',
-        "back": '_full.json'
-      }
+class getRegion:
 
-print(datav_api["front"]+datav_api["adcode"]+datav_api["back"])
+    datav_api = {
+        
+        "front": "",
+        "adcode": "",
+        "back": ""
+        
+    }
 
-res = requests.get(datav_api["front"]+datav_api["adcode"]+datav_api["back"])
+    api = ""
 
-if(res.status_code == 200):
-	print(res.text)
-elif(res.status_code == 404):
-	print("404 NOT FOUND")
-else:
-	print("NET ERROR" + res.status_code)
+    region = []
+    
+    def __init__(self):
+
+        self.setDATAv("https://geo.datav.aliyun.com/areas_v3/bound/",
+                      "100000", "_full.json")
+        self.resetAPI()
+        print("Will send request to ", self.api)
+        region = self.req()
+        print(region)
+
+    def setDATAv(self, url, adcode, exname):
+        self.datav_api["front"] = url
+        self.datav_api["adcode"] = adcode
+        self.datav_api["back"] = exname
+
+    def resetAPI(self):
+        self.api = self.datav_api["front"] + \
+            self.datav_api["adcode"] + self.datav_api["back"]
+
+    def req(self):
+
+        with requests.get(self.api) as res:
+            res = json.loads(res.text)
+            return res
+
+districts = getRegion()
