@@ -1,7 +1,16 @@
 import pymysql
 import requests
 import json
+import os
 
+
+if os.path.exists("server.json"):
+    print("exist")
+else:
+    print("not exist")
+with open("server.json") as file:
+    server = json.load(file)
+    print("json: ", server)
 
 class getRegion:
 
@@ -25,15 +34,15 @@ class getRegion:
 
 
         # TODO: 将数据保存在本地json，将json添加至.gitignore
-        connection = pymysql.connect(host='',
-                             user='',
-                             password='',
-                             database='')
+        # connection = pymysql.connect(host='',
+        #                      user='',
+        #                      password='',
+        #                      database='')
         
-        with connection:
-            with connection.cursor() as cursor:
-                sql = "INSERT INTO `users` (`email`, `password`) VALUES (%s, %s)"
-                cursor.execute(sql, ('webmaster@python.org', 'very-secret'))
+        # with connection:
+        #     with connection.cursor() as cursor:
+        #         sql = "INSERT INTO `users` (`email`, `password`) VALUES (%s, %s)"
+        #         cursor.execute(sql, ('webmaster@python.org', 'very-secret'))
             
 
         print("Will send request to ", self.api)
