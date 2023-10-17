@@ -58,5 +58,6 @@ with open(path) as file:
     with connection:
         with connection.cursor() as cursor:
             res = getRegion().req
+            print()
 
 # districts = getRegion()

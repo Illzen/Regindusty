@@ -1,0 +1,33 @@
+{
+	"features":[
+		{
+			"geometry": {
+				"coordinates": [
+					[
+						[0,0],
+						[]
+					],
+					[]
+				]
+			},
+			"properties": {
+				"acroutes": [],
+				"adcode": 0,
+				"center": [0,0],
+				"centroid": [0,0],
+				"childrenNum": 0,
+				"level": "",
+				"name": "",
+				"parent": {
+					"adcode": 0
+				},
+				"subFeatureIndex": 0
+			},
+			"type": ""
+		},
+		{
+
+		}
+	],
+	"type": ""
+}
