@@ -17,9 +17,11 @@ export default {
 
 
 </script>
-
+<title>
+    基于知识图谱的乡村产业振兴信息平台开发与应用
+  </title>
 <template id="app">
-
+  
   <el-container style="height: 100%">
     <el-header height="80px">
       <main_header/>
