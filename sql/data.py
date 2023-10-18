@@ -1,7 +1,6 @@
 import pymysql
 import requests
 import json
-import os
 
 class getRegion:
 
@@ -21,22 +20,26 @@ class getRegion:
 
         self.setDATAv("https://geo.datav.aliyun.com/areas_v3/bound/",
                       "100000", "_full.json")
-        self.resetAPI()
 
     def setDATAv(self, url, adcode, exname):
         self.datav_api["front"] = url
         self.datav_api["adcode"] = adcode
         self.datav_api["back"] = exname
+        self.resetAPI
+
+    def setADcode(self,adcode):
+        self.datav_api["adcode"] = adcode
+        self.resetAPI()
 
     def resetAPI(self):
         self.api = self.datav_api["front"] + \
-            self.datav_api["adcode"] + self.datav_api["back"]
+            str(self.datav_api["adcode"]) + self.datav_api["back"]
 
     def req(self):
 
         with requests.get(self.api) as res:
-            res = json.loads(res.text)
-            return res
+            return json.loads(res.text)
+            
 
 ######################################
 #存储数据库相关信息的json文件
@@ -54,10 +57,31 @@ with open(path) as file:
     connection = pymysql.connect(host=server["url"],
                          user=server["user"],
                          password=server["password"],
-                         database=server["database"])
+                         database=server["database"]["name"])
     with connection:
         with connection.cursor() as cursor:
-            res = getRegion().req
-            print()
+
+            region = getRegion()
+            region.setADcode("350000")
+            res = region.req()
+
+            for city in res["features"]:
+
+                region.setADcode(city["properties"]["adcode"])
+                districts = region.req()
+
+                for country in districts["features"]:
+                    cursor.execute("INSERT INTO districts(adcode,name) VALUES (%s,%s);",
+                                    (country["properties"]["adcode"],
+                                    country["properties"]["name"]))
+                    try:
+                        connection.commit()
+                    except:
+                        connection.rollback()
+
+
+            
+                    
+            
 
 # districts = getRegion()
