@@ -52,6 +52,7 @@ class getRegion:
 # }
 ######################################
 path = "D:\\Projects\\基于知识图谱的乡村产业振兴信息平台开发与应用\\sql\\server.json"
+######################################
 with open(path) as file:
     server = json.load(file)
     connection = pymysql.connect(host=server["url"],
@@ -78,10 +79,3 @@ with open(path) as file:
                         connection.commit()
                     except:
                         connection.rollback()
-
-
-            
-                    
-            
-
-# districts = getRegion()

@@ -1,1 +1,1 @@
-INSERT INTO districts() VALUES ();
+INSERT INTO specialty() VALUES ();

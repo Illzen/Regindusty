@@ -1,5 +1,7 @@
 .gitignore
 sql/server.json
+sql/data.py
+python/bilibili-user
 
 .DS_Store
 node_modules
