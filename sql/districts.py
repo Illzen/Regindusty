@@ -1,6 +1,7 @@
 import pymysql
 import requests
 import json
+import time
 
 class getRegion:
 
@@ -70,6 +71,7 @@ with open(path) as file:
 
                 region.setADcode(city["properties"]["adcode"])
                 districts = region.req()
+                time.sleep(0.2)
 
                 for country in districts["features"]:
                     cursor.execute("INSERT INTO districts(adcode,name) VALUES (%s,%s);",

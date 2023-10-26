@@ -14,13 +14,13 @@ CREATE DATABASE regindusty;
 USE regindusty
 
 CREATE TABLE districts (
-	adcode INT AUTO_INCREMENT,
+	adcode INT,
 	name VARCHAR(20),
 	PRIMARY KEY(adcode)
 );
 
 CREATE TABLE specialty (
-	id INT,
+	id INT AUTO_INCREMENT,
 	name VARCHAR(20),
 	description TEXT,
 	PRIMARY KEY(id)
