@@ -1,5 +1,7 @@
 .gitignore
-sql/server.json
+back/src/test
+back/target
+
 
 .DS_Store
 node_modules
